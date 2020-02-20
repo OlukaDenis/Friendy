@@ -5,9 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :name, presence: true, length: { maximum: 20 }
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   validates :email, presence: true,
-                    format: { with: VALID_EMAIL_REGEX}
+                    format: { with: VALID_EMAIL_REGEX }
   validates :password, presence: true, length: { minimum: 6 }
 
   has_many :posts, dependent: :destroy
@@ -32,17 +32,17 @@ class User < ApplicationRecord
 
   # Outgoing friend requests
   def outgoing_requests
-    friends_arr = friendships.map { |friendship| friendship.friend if !friendship.status }.compact
+    friends_arr = friendships.map { |friendship| friendship.friend unless friendship.status }.compact
   end
 
   # Incoming friend requests
   def incoming_requests
-    friends_arr = reverse_friendships.map { |friendship| friendship.user if !friendship.status }.compact
+    friends_arr = reverse_friendships.map { |friendship| friendship.user unless friendship.status }.compact
   end
 
   # Confirming incoming friend requests
   def confirm_friend(user)
-    friendship = reverse_friendships.find{|friendship| user == friendship.user}
+    friendship = reverse_friendships.find { |friendship| user == friendship.user }
     friendship.status = true
     friendship.save
   end

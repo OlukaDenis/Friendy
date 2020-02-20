@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "SignUp user", type: :feature do
-
+RSpec.feature 'SignUp user', type: :feature do
   scenario 'with valid credentials' do
     visit new_user_registration_path
     user = build(:user)
@@ -16,5 +15,4 @@ RSpec.feature "SignUp user", type: :feature do
     fill_in 'Password confirmation', with: user.password
     click_button 'Sign up'
   end
-
 end

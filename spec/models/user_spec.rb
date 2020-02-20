@@ -10,7 +10,6 @@ RSpec.describe User, type: :model do
   end
 
   describe 'validations' do
-
     it { should validate_presence_of(:email) }
     it { should validate_presence_of(:password) }
     it { should validate_presence_of(:name) }
@@ -30,11 +29,10 @@ RSpec.describe User, type: :model do
 
     # Password length
     it do
-      should validate_length_of(:password).
-        is_at_least(6).
-        on(:create)
+      should validate_length_of(:password)
+        .is_at_least(6)
+        .on(:create)
     end
-
   end
 
   describe 'associations' do

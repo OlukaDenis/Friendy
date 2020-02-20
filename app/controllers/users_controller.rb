@@ -10,10 +10,9 @@ class UsersController < ApplicationController
     @posts = @user.posts.ordered_by_most_recent
   end
 
-
   def send_request
     current_user.friendships.create(friend_id: params[:id])
-    flash[:success] = "Friend request sent"
+    flash[:success] = 'Friend request sent'
     redirect_to root_path
   end
 
