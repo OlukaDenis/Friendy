@@ -2,16 +2,16 @@
 
   <div class="user-details">
     <h2><%= @user.name %></h2>
-    <% if current_user.is_friend?(@user) %>
+    <% if current_user %>
+      <p>No</p>
+    <% elsif current_user.is_friend?(@user) %>
       <p>You're friends</p>
     <% elsif current_user.outgoing_requests.include?(@user) %>
       <p> Pending request </p>
     <% elsif current_user.incoming_requests.include?(@user) %>
       <%= link_to 'Confirm friend', recieverequest(@user.id), method: 'post' %>
-    <% elsif !current_user.is_friend?(@user) %>
-      <%= link_to 'Add friend', sendrequest_path(@user.id), method: 'post' %>
     <% else %>
-      <p>No</p>
+      <%= link_to 'Add friend', sendrequest(@user.id), method: 'post' %>
     <% end %>
   </div>
   
