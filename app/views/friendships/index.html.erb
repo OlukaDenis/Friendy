@@ -26,7 +26,7 @@
                             <ul class="list-group">
                                 <li class="list-group-item"><%= link_to request.name, user_path(request)%>
                                     <div>
-                                        <%= link_to 'Accept', friendship_path(request.id), method: 'put', class: "btn btn-primary btn-sm" %>
+                                        <%= link_to 'Accept', friendship_path(request.id), method: 'put', class: "btn btn-success btn-sm" %>
                                         <%= link_to 'Delete', friendship_path(request.id), method: 'delete', class: "btn btn-danger btn-sm" %>
                                     </div>
                                 </li>

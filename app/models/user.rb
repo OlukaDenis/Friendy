@@ -30,6 +30,11 @@ class User < ApplicationRecord
     friends_arr.compact
   end
 
+  # List of users posts
+  # def all_posts
+  #   psts = posts.map { |p| p.posts}
+  # end
+
   # Outgoing friend requests
   def outgoing_requests
     friends_arr = friendships.map { |friendship| friendship.friend unless friendship.status }.compact
@@ -47,14 +52,17 @@ class User < ApplicationRecord
   end
 
   # Remove friend
-  def remove_reverse_friend(friend)    
-      friendships.delete friend
+  def remove_reverse_friend(friend)
+    friendships.delete friend
   end
 
-  def remove_friend(friend)
-    reverse_friendships.delete friend
+  # def remove_friend(friend)
+  #   reverse_friendships.delete friend
+  # end
+
+  def pending_request?(user)
+    (outgoing_requests + incoming_requests).include? user
   end
- 
 
   # Check whether a user is a friend
   def is_friend?(user)

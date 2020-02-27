@@ -1,18 +1,25 @@
 <section class="user-section">
 
-  <div class="user-details">
-    <h2><%= @user.name %></h2>
-    <% if current_user %>
-      <p>No</p>
-    <% elsif current_user.is_friend?(@user) %>
-      <p>You're friends</p>
-    <% elsif current_user.outgoing_requests.include?(@user) %>
-      <p> Pending request </p>
-    <% elsif current_user.incoming_requests.include?(@user) %>
-      <%= link_to 'Confirm friend', recieverequest(@user.id), method: 'post' %>
-    <% else %>
-      <%= link_to 'Add friend', sendrequest(@user.id), method: 'post' %>
-    <% end %>
+  <div class=" card user-details">
+    <div class="card-body">
+      <h2><%= @user.name %></h2> <hr>
+        <div class="user-info">
+          <% if @user != current_user %>
+            <% if current_user.is_friend?(@user) %>
+              <%= link_to 'Unfriend', friendship_path(@user), method: 'delete', class: "btn btn-danger btn-sm" %></li>
+            <% elsif current_user.outgoing_requests.include?(@user) %>
+              <p span class="badge badge-warning"> Pending request </p>
+            <% elsif current_user.incoming_requests.include?(@user) %>
+              <%= link_to 'Accept', friendship_path(@user.id), method: 'put', class: "btn btn-success btn-sm" %>
+            <% else %>
+              <%= link_to 'Add friend', sendrequest_path(@user.id), method: 'post', class: "btn btn-primary btn-sm" %>
+            <% end %>
+          <% end %>
+
+          <p> Friends <span class="badge badge-info"><%= @user.friends.count %> </span></p>
+          <p> Posts <span class="badge badge-info"><%= @user.posts.count %> </span></p>
+        </div>
+    </div>
   </div>
   
   <article class="timeline">
