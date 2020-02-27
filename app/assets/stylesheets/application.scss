@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+    @import "bootstrap";
+
+.buddies, .users-section{
+   ul {
+      li{
+         display: flex;
+         justify-content: space-between;
+      }
+   }
+}
+
+.user-info {
+   display: flex;
+
+   p {
+      margin-left: 10px;
+   }
+}

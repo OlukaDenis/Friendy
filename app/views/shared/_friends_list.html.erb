@@ -1,0 +1,11 @@
+
+
+    <div class="buddies">
+        <% @friends.each do |friend| %>
+            <ul class="list-group">
+                <li class="list-group-item"><%= link_to friend.name, user_path(friend)%>
+                <%= link_to 'Unfriend', friendship_path(friend), method: 'delete', class: "btn btn-danger btn-sm" %></li>
+            </ul>
+        <% end %>
+    </div>
+    <%# <%= will_paginate @friends %> 
