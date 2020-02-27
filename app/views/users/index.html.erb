@@ -1,23 +1,20 @@
-<section class="users-section">
-  <ul class="users-list">
+<section class=" card users-section">
+  <h5 class="card-header"> People you may know </h5>
     <% @users.each do |user| %>
-      <li>
-        Name: <%= user.name %>
-        <span class="profile-link">
-          <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %>
-        </span>
-          <% if user != current_user  %>
-            <% if current_user.is_friend?(user) %>
-              <span>You're friends</span>
-            <% elsif current_user.outgoing_requests.include?(user) %>
-              <span> Pending request </span>
-            <% elsif current_user.incoming_requests.include?(user) %>
-              <span><%= link_to 'Confirm friend', recieverequest_path(user), method: 'post' %></span>
-            <% elsif !current_user.is_friend?(user) %>
-              <span><%= link_to 'Add friend', sendrequest_path(user.id), method: 'post' %></span>
-            <% end %>  
-          <% end %>      
-      </li>
+        <ul class="list-group">
+            <li class="list-group-item"><%= link_to user.name, user_path(user)%>
+              <% if user != current_user  %>
+                <% if current_user.is_friend?(user) %>
+                  <%= link_to 'Unfriend', friendship_path(user), method: 'delete', class: "btn btn-danger btn-sm" %></li>
+                <% elsif current_user.outgoing_requests.include?(user) %>
+                  <p><span class="badge badge-warning">Pending Request</span></p>
+                <% elsif current_user.incoming_requests.include?(user) %>
+                  <%= link_to 'Accept', friendship_path(user), method: 'put', class: "btn btn-success btn-sm" %>
+                <% elsif !current_user.is_friend?(user) %>
+                  <%= link_to 'Add friend', sendrequest_path(user.id), method: 'post', class: "btn btn-primary btn-sm" %>
+                <% end %>  
+              <% end %> 
+            </li>
+        </ul>
     <% end %>
-  </ul>
 </section>

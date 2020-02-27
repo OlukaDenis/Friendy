@@ -1,0 +1,42 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header">Friends <span class="badge badge-primary"> <%= @friends.count %> </span> </div>
+                <div class="card-body">
+                    <% if @friends.empty?%>
+                        <p class="text-center"><em> You have no friends </em></p>
+                    <% end %>
+                    <%= render 'shared/friends_list' %>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header">Friend Requests <span class="badge badge-primary"> <%= @friend_requests.count %> </span> </div>
+                <div class="card-body">
+                    <div class="buddies">
+                        <% if @friend_requests.empty?%>
+                            <p class="text-center"><em> You have no friend requests </em></p>
+                        <% end %>
+                        <% @friend_requests.each do |request| %>
+                            <ul class="list-group">
+                                <li class="list-group-item"><%= link_to request.name, user_path(request)%>
+                                    <div>
+                                        <%= link_to 'Accept', friendship_path(request.id), method: 'put', class: "btn btn-primary btn-sm" %>
+                                        <%= link_to 'Delete', friendship_path(request.id), method: 'delete', class: "btn btn-danger btn-sm" %>
+                                    </div>
+                                </li>
+                            </ul>
+                        <% end %>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

@@ -8,16 +8,21 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <nav class="nav">
+    <nav class="nav navbar  navbar-expand-md">
       <%= link_to 'Stay in touch', root_path %>
       <div class="menu">
         <div class="menu-item">
           <%= menu_link_to 'Timeline', posts_path %>
         </div>
         <div class="menu-item">
-          <%= menu_link_to 'All users', users_path %>
+          <%= menu_link_to 'Find Friends', users_path %>
         </div>
+        <% if current_user %>
+            <% @requests = current_user.incoming_requests.count%>
+            <%= link_to "Friends (#{@requests})", friendships_path %>
+        <% end %>
       </div>
+      
       <% if current_user %>
         <%= link_to current_user.name, user_path(current_user.id) %>
         <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>

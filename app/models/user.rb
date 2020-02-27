@@ -42,10 +42,19 @@ class User < ApplicationRecord
 
   # Confirming incoming friend requests
   def confirm_friend(user)
-    friendship = reverse_friendships.find { |friendship| user == friendship.user }
-    friendship.status = true
-    friendship.save
+    reverse_friendships.find { |friendship| user == friendship.user }.update(status: true)
+    # friendships.create(friend: user, status: true)
   end
+
+  # Remove friend
+  def remove_reverse_friend(friend)    
+      friendships.delete friend
+  end
+
+  def remove_friend(friend)
+    reverse_friendships.delete friend
+  end
+ 
 
   # Check whether a user is a friend
   def is_friend?(user)
