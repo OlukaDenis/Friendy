@@ -25,9 +25,33 @@
 }
 
 .user-info {
-   display: flex;
+   ul {
+      display: inline-flex;
+      align-items: center;
+      li {
+         margin-left: 10px;
+      }
+   }
+   
+}
 
-   p {
-      margin-left: 10px;
+.user-posts-card{
+   margin-top: 1rem;
+}
+
+.timeline-posts{
+   padding: 1rem;
+}
+
+nav{
+   .nav-brand{
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
+      display: inline-block;
+      padding-top: 0.3125rem;
+      padding-bottom: 0.3125rem;
+      margin-right: 1rem;
+      font-size: 1.25rem;
+      line-height: inherit;
    }
 }

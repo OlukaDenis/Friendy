@@ -1,0 +1,24 @@
+<nav class="nav navbar  navbar-expand-md">
+    <%= link_to 'Friendy', root_path, class: "nav-brand" %>
+    <div class="menu">
+    <div class="menu-item">
+        <%= menu_link_to 'Timeline', posts_path %>
+    </div>
+    <div class="menu-item">
+        <%= menu_link_to 'Find Friends', users_path %>
+    </div>
+    <div class="menu-item">
+    <% if current_user %>
+        <% @requests = current_user.incoming_requests.count%>
+        <a href="/friendships"> Friends <span class="badge badge-danger"><%= @requests %></span></a>
+    <% end %>
+    </div>
+    </div>
+    
+    <% if current_user %>
+    <%= link_to current_user.name, user_path(current_user.id) %>
+    <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+    <% else %>
+    <%= link_to 'Sign in', user_session_path %>
+    <% end %>
+</nav>
