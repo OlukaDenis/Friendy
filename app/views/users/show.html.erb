@@ -4,28 +4,37 @@
     <div class="card-body">
       <h2><%= @user.name %></h2> <hr>
         <div class="user-info">
-          <% if @user != current_user %>
-            <% if current_user.is_friend?(@user) %>
-              <%= link_to 'Unfriend', friendship_path(@user), method: 'delete', class: "btn btn-danger btn-sm" %></li>
-            <% elsif current_user.outgoing_requests.include?(@user) %>
-              <p span class="badge badge-warning"> Pending request </p>
-            <% elsif current_user.incoming_requests.include?(@user) %>
-              <%= link_to 'Accept', friendship_path(@user.id), method: 'put', class: "btn btn-success btn-sm" %>
-            <% else %>
-              <%= link_to 'Add friend', sendrequest_path(@user.id), method: 'post', class: "btn btn-primary btn-sm" %>
+          <ul>
+            <% if @user != current_user %>
+              
+                <% if current_user.is_friend?(@user) %>
+                  <li><%= link_to 'Unfriend', friendship_path(@user), method: 'delete', class: "btn btn-danger btn-sm" %></li>
+                <% elsif current_user.outgoing_requests.include?(@user) %>
+                  <li span class="badge badge-warning"> Pending request </li>
+                <% elsif current_user.incoming_requests.include?(@user) %>
+                  <li><%= link_to 'Accept', friendship_path(@user.id), method: 'put', class: "btn btn-success btn-sm" %></li>
+                <% else %>
+                  <li><%= link_to 'Add friend', sendrequest_path(@user.id), method: 'post', class: "btn btn-primary btn-sm" %></li>
+                <% end %>
+              
             <% end %>
-          <% end %>
 
-          <p> Friends <span class="badge badge-info"><%= @user.friends.count %> </span></p>
-          <p> Posts <span class="badge badge-info"><%= @user.posts.count %> </span></p>
+            <li> Friends <span class="badge badge-info"><%= @user.friends.count %> </span></li>
+            <li> Posts <span class="badge badge-info"><%= @user.posts.count %> </span></li>
+          </ul>
         </div>
     </div>
   </div>
   
-  <article class="timeline">
-    <h3>Recent posts:</h3>
-    <ul class="posts">
-      <%= render @posts %>
-    </ul>
-  </article>
+  <div class=" card user-posts-card">
+    <div class="card-body">
+      <article class="timeline">    
+          <h3 class="text-center">Recent posts:</h3>
+          <ul class="posts">
+            <%= render @posts %>
+          </ul>
+        
+      </article>
+    </div>
+  </div>  
 </section>

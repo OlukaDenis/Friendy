@@ -2,7 +2,7 @@
 
 $primary-color-dark: #11447e;
 $primary-color: #3b6faa;
-$primary-color-light: #dcedc8;
+$primary-color-light: #e5edfd;
 $primary-color-text: #212121;
 $divider-color: #bdbdbd;
 
@@ -136,7 +136,7 @@ form {
     border-radius: 4px;
     background-color: $primary-color-dark;
     color: $primary-color-light;
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-weight: 900;
   }
 
@@ -168,11 +168,24 @@ form {
   text-transform: capitalize;
 }
 
-.new_post,
 .new_comment{
+  display: inline-flex;
+  flex-direction: row;
+  width: 100%;
+
+  label {
+    display: none;
+  }
+
+  .btn-secondary {
+    width: 20%;
+    margin-left: 3%;
+  }
+}
+.new_post{
   display: flex;
   flex-direction: column;
-  align-items: center;
+  // align-items: center;
   width: 100%;
 
   label {
@@ -197,12 +210,7 @@ form {
   }
 
   .btn-primary {
-    width: 100%;
-  }
-
-  .btn-secondary {
     width: 30%;
-    margin-left: 70%;
   }
 }
 
@@ -211,10 +219,11 @@ form {
   margin: 16px 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  // align-items: center;
 
   h3 {
-    margin: 8px 0;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #bdbdbd;
   }
 
   .posts {
