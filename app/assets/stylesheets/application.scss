@@ -47,11 +47,10 @@ nav{
    .nav-brand{
       text-transform: uppercase;
       letter-spacing: 0.2rem;
-      display: inline-block;
-      padding-top: 0.3125rem;
-      padding-bottom: 0.3125rem;
-      margin-right: 1rem;
-      font-size: 1.25rem;
-      line-height: inherit;
+      margin-left: 1rem;
+      margin-right: 5px;
+      padding-right: 8px;
+      border-right: 1px solid #0b315c;
+      // font-size: 1.25rem;
    }
 }

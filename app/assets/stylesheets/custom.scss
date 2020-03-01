@@ -2,7 +2,7 @@
 
 $primary-color-dark: #11447e;
 $primary-color: #3b6faa;
-$primary-color-light: #e5edfd;
+$primary-color-light: #cecece;
 $primary-color-text: #212121;
 $divider-color: #bdbdbd;
 
@@ -38,9 +38,22 @@ a {
 .nav {
   display: flex;
   justify-content: space-between;
+  justify-items: center;
   padding: 16px 48px;
   background-color: $primary-color-dark;
   color: $primary-color-light;
+
+  .left-menu{
+    display: inline-flex;
+    justify-items: center;
+    width: 70%;
+  }
+
+  .right-menu{
+    a {
+      margin: 0 5px;
+    }
+  }
 
   .menu {
     width: 80%;
@@ -48,15 +61,18 @@ a {
 
     .menu-item {
       float: left;
-      margin: 0 15px;
+      margin: 0 5px;
 
       .active {
         a {
-          color: #fff;
+          color: white;
+          padding-bottom: 8px;
+          border-bottom: 2px solid white;
         }
       }
     }
   }
+  
 }
 
 .nav a {
@@ -67,6 +83,9 @@ a {
 
 .nav a:hover {
   color: #fff;
+  text-decoration: none;
+  padding-bottom: 8px;
+  border-bottom: 2px solid white;
 }
 
 .main {
