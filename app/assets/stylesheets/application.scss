@@ -14,6 +14,7 @@
  *= require_self
  */
     @import "bootstrap";
+   //  @import "font-awesome";
 
 .buddies, .users-section{
    ul {
@@ -51,6 +52,13 @@ nav{
       margin-right: 5px;
       padding-right: 8px;
       border-right: 1px solid #0b315c;
+      font-weight: 900;
       // font-size: 1.25rem;
    }
+}
+
+.left-menu {
+   .nav-brand:hover {
+      border: none;
+    }
 }

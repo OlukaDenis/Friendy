@@ -2,6 +2,7 @@
   "name": "ror_social_scaffold",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.12.1",
     "@rails/webpacker": "4.2.2"
   },
   "devDependencies": {
