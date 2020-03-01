@@ -33,13 +33,13 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'bootstrap', '4.4.1'
+gem 'font-awesome-rails', '4.7.0.5'
 gem 'jquery-rails', '4.3.5'
 gem 'popper_js', '~> 1.16.0'
 gem 'rails-ujs', '0.1.0'
 gem 'webpacker', '~> 4.0'
 gem 'will_paginate', '3.3.0'
 gem 'will_paginate-bootstrap4', '0.2.2'
-gem 'font-awesome-rails', '4.7.0.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

@@ -18,7 +18,8 @@ To build an application similar to Facebook. The main goal is to put in practice
 
 ## Live Demo
 
-TBA
+    [Live
+    here](https://friendy-social.herokuapp.com/)
 
 
 ## Prerequisites
