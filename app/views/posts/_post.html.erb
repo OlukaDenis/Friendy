@@ -4,13 +4,22 @@
       <%= link_to post.user.name, user_path(post.user), class: 'post-author' %>
     </div>
     <div class='post-liking'>
-      <span class='post-date'> <%= post.created_at.strftime("%Y/%m/%d") %> </span>
-      <%= like_or_dislike_btn(post) %>
+      <span class='post-date'> <%= post_date(post) %> </span>
+     
     </div>
   </div>
-  <p class="post-content">
-    <%= post.content %>
-  </p>
+  <div class="post-content">
+    <p><%= post.content %></p>
+    <p> <span>
+      <% if like_or_dislike_btn(post) %>
+          <i class="fas fa-heart text-primary"></i>
+          <%= link_to('Unlike', post_like_path(id: @like.id, post_id: post.id), method: :delete)%>
+      <% else %>
+          <i class="far fa-heart text-primary"></i>
+          <%= link_to('Like', post_likes_path(post_id: post.id), method: :post) %>
+      <% end %> 
+    </span></p>
+  </div>
 
   <div class='post-comments-section'>
     <% post.comments.each do |comment| %>
@@ -18,7 +27,7 @@
         <p>
           <b><%= comment.user.name %>:</b> <%= comment.content %>
         </p>
-        <span> <%= comment.created_at.strftime("%Y/%m/%d") %> </span>
+        <span> <%= comment_date(comment) %> </span>
       </div>
     <% end %>
 

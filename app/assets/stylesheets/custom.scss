@@ -2,9 +2,11 @@
 
 $primary-color-dark: #11447e;
 $primary-color: #3b6faa;
-$primary-color-light: #cecece;
+$primary-color-light: #e7e7e7;
 $primary-color-text: #212121;
-$divider-color: #bdbdbd;
+$divider-color: #d3d3d3;
+$comment-bg: #e0e9f17c;
+
 
 * {
   margin: 0;
@@ -68,6 +70,7 @@ a {
           color: white;
           padding-bottom: 8px;
           border-bottom: 2px solid white;
+          font-weight: 900;
         }
       }
     }
@@ -78,14 +81,15 @@ a {
 .nav a {
   color: $primary-color-light;
   text-transform: capitalize;
-  font-weight: 900;
 }
 
-.nav a:hover {
+.nav
+ a:hover {
   color: #fff;
   text-decoration: none;
   padding-bottom: 8px;
   border-bottom: 2px solid white;
+  font-weight: 900;
 }
 
 .main {
@@ -282,21 +286,41 @@ form {
 
   .post-content {
     font-size: 1.1em;
-    padding: 4px 0;
+    // padding: 4px 0 10px; 
+    border-bottom: 1px solid $divider-color;
+
+    p {
+      font-size: 14px;
+      cursor: pointer;
+
+      a{
+        text-decoration: none;
+      }
+
+      span{
+        background-color: $comment-bg;
+        border-radius: 20px;
+        padding: 6px 12px;
+
+        &:hover{
+          background-color: #e0e9f1;
+        }
+      }
+    }
   }
 
   .post-comments-section {
     margin: 5px;
-    width: 90%;
-    margin-left: 10%;
+    // width: 90%;
+    margin-left: 5%;
 
     .post-comments {
       position: relative;
       display: flex;
-      border-bottom: 1px solid $divider-color;
-      border-radius: 3px;
-      margin-bottom: 2px;
-      padding: 10px;
+      border-radius: 10px;
+      margin-bottom: 5px;
+      padding: 10px 0 0 10px;
+      background-color: $comment-bg;
 
       p {
         font-size: .8em;
@@ -306,6 +330,7 @@ form {
         position: absolute;
         right: 3px;
         font-size: 0.6em;
+        padding-right: 10px;
       }
     }
   }

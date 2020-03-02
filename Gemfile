@@ -33,6 +33,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'bootstrap', '4.4.1'
+gem 'font-awesome-rails', '4.7.0.5'
 gem 'jquery-rails', '4.3.5'
 gem 'popper_js', '~> 1.16.0'
 gem 'rails-ujs', '0.1.0'
