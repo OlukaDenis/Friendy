@@ -6,7 +6,7 @@
     <% end %>
 
       <% @users.each do |user| %>      
-        <% if user != current_user && !current_user.is_friend?(user) && !current_user.pending_request?(user) %>
+        <% if user != current_user && !current_user.friend?(user) && !current_user.pending_request?(user) %>
           <ul class="list-group">
               <li class="list-group-item"><%= link_to user.name, user_path(user)%>
                   <%= link_to 'Add friend', sendrequest_path(user.id), method: 'post', class: "btn btn-primary btn-sm" %>

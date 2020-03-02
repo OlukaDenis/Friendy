@@ -37,12 +37,12 @@ class User < ApplicationRecord
 
   # Outgoing friend requests
   def outgoing_requests
-    friends_arr = friendships.map { |friendship| friendship.friend unless friendship.status }.compact
+    friendships.map { |friendship| friendship.friend unless friendship.status }.compact
   end
 
   # Incoming friend requests
   def incoming_requests
-    friends_arr = reverse_friendships.map { |friendship| friendship.user unless friendship.status }.compact
+    reverse_friendships.map { |friendship| friendship.user unless friendship.status }.compact
   end
 
   # Confirming incoming friend requests
@@ -65,7 +65,7 @@ class User < ApplicationRecord
   end
 
   # Check whether a user is a friend
-  def is_friend?(user)
+  def friend?(user)
     friends.include?(user)
   end
 end
