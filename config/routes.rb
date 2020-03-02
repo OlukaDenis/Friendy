@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'posts#index'
 
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   post 'user/sendrequest/:id', to: 'users#send_request', as: 'sendrequest'
   post 'user/recieverequest/:id', to: 'users#accept_request', as: 'recieverequest'

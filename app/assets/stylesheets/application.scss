@@ -61,3 +61,66 @@ nav{
       border: none;
     }
 }
+
+#custom-card {
+   max-width: 600px;
+   margin-bottom: 100px;
+   margin: 0 auto;
+}
+.signin-with {
+   .divider {
+      padding-top: 16px;
+      border-bottom: 1px solid grey;
+      position: relative;
+
+      span{
+         top: -20px;
+         color: gray;
+      }
+   }
+
+   h6{
+      padding: 8px 0;
+      color: gray;
+   }
+   a{
+      text-decoration: none;
+      color: white;
+   }
+
+   .facebook{
+      background-color: #3b5998;
+      &:hover{
+         background-color: #4d6eb1;
+      }
+   }
+
+   .google {
+      background-color: #DB4437;
+      &:hover{
+         background-color: rgb(226, 81, 68);
+      }
+   }
+
+   .github {
+      background-color: #24292e;
+      &:hover{
+         background-color: #383b3d;
+      }
+   }
+
+   ul{
+      display: inline-flex;
+      li{
+         cursor: pointer;
+         padding: 6px 12px;
+         border-radius: 4px;  
+         margin-right: 12px;    
+         span{
+            a {
+               padding-left: 8px;
+            }
+         }
+      }
+   }
+}
