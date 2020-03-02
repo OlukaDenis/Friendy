@@ -7,7 +7,7 @@
           <ul>
             <% if @user != current_user %>
               
-                <% if current_user.is_friend?(@user) %>
+                <% if current_user.friend?(@user) %>
                   <li><%= link_to 'Unfriend', friendship_path(@user), method: 'delete', class: "btn btn-danger btn-sm" %></li>
                 <% elsif current_user.outgoing_requests.include?(@user) %>
                   <li span class="badge badge-warning"> Pending request </li>
