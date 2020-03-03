@@ -13,3 +13,51 @@
  *= require_tree .
  *= require_self
  */
+   @import "bootstrap";
+
+.buddies, .users-section{
+   ul {
+      li{
+         display: flex;
+         justify-content: space-between;
+      }
+   }
+}
+
+.user-info {
+   ul {
+      display: inline-flex;
+      align-items: center;
+      li {
+         margin-left: 10px;
+      }
+   }
+   
+}
+
+.user-posts-card{
+   margin-top: 1rem;
+}
+
+.timeline-posts{
+   padding: 1rem;
+}
+
+nav{
+   .nav-brand{
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
+      margin-left: 1rem;
+      margin-right: 5px;
+      padding-right: 8px;
+      border-right: 1px solid #0b315c;
+      font-weight: 900;
+      // font-size: 1.25rem;
+   }
+}
+
+.left-menu {
+   .nav-brand:hover {
+      border: none;
+    }
+}

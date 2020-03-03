@@ -1,3 +1,5 @@
+inherit_from: .rubocop_todo.yml
+
 AllCops:
   Exclude:
     - "db/**/*"
@@ -26,7 +28,7 @@ Metrics/ClassLength:
   Max: 150
 Metrics/BlockLength:
   ExcludedMethods: ['describe']
-  Max: 30
+  Max: 100
 
 Style/Documentation:
   Enabled: false

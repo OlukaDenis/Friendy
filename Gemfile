@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.4'
+gem 'rails', '~> 6.0.2'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -32,7 +32,14 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'bootstrap', '4.4.1'
+gem 'font-awesome-rails', '4.7.0.5'
+gem 'jquery-rails', '4.3.5'
+gem 'popper_js', '~> 1.16.0'
+gem 'rails-ujs', '0.1.0'
+gem 'webpacker', '~> 4.0'
+gem 'will_paginate', '3.3.0'
+gem 'will_paginate-bootstrap4', '0.2.2'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
@@ -44,7 +51,16 @@ group :development, :test do
 end
 
 group :test do
-  gem 'rspec'
+  gem 'database_cleaner', '1.8.2'
+  gem 'factory_bot_rails'
+  gem 'rspec-rails', '3.9.0'
+  gem 'shoulda-matchers', '4.3.0'
+  # gem 'rspec'
+  # Adds support for Capybara system testing and selenium driver
+  gem 'capybara', '3.31.0'
+  gem 'selenium-webdriver'
+  # Easy installation and use of web drivers to run system tests with browsers
+  gem 'webdrivers'
 end
 
 group :development do

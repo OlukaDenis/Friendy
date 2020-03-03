@@ -1,12 +1,18 @@
-<section class="users-section">
-  <ul class="users-list">
-    <% @users.each do |user| %>
-      <li>
-        Name: <%= user.name %>
-        <span class="profile-link">
-          <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %>
-        </span>
-      </li>
+<section class=" card users-section">
+  <h5 class="card-header"> People you may know </h5>
+    <div class="card-body">
+    <% if @users.empty?%>
+        <p class="text-center"><em> Np friends </em></p>
     <% end %>
-  </ul>
+
+      <% @users.each do |user| %>      
+        <% if user != current_user && !current_user.friend?(user) && !current_user.pending_request?(user) %>
+          <ul class="list-group">
+              <li class="list-group-item"><%= link_to user.name, user_path(user)%>
+                  <%= link_to 'Add friend', sendrequest_path(user.id), method: 'post', class: "btn btn-primary btn-sm" %>
+              </li>
+          </ul>
+        <% end %>
+      <% end %>
+    </div>
 </section>

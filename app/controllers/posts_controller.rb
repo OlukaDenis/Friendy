@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   def index
     @post = Post.new
     timeline_posts
+    @like = Like.find_by(post: @post, user: current_user)
   end
 
   def create
