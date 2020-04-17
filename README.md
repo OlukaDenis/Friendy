@@ -3,6 +3,8 @@
 This is part of Social Network App project in Microverse's rails curriculum. Find it [here](https://microverse.pathwright.com/library/fast-track-curriculum/69047/path/step/49736080/)
 To build an application similar to Facebook. The main goal is to put in practice concepts of rails authentication, active record and associations.
 
+## Screenshot
+![friendy](https://user-images.githubusercontent.com/37341054/79591086-b7a07f80-80e0-11ea-8ba4-919e91c6bb43.png)
 
 ## Built With
 
