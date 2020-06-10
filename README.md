@@ -22,6 +22,9 @@ To build an application similar to Facebook. The main goal is to put in practice
 
    [Live here](https://friendy-social.herokuapp.com/)
 
+## Video
+[Video Demo Link](https://www.loom.com/share/d028f52cf84141048f1b1ab5efefc888)
+
 
 ## Prerequisites
 
